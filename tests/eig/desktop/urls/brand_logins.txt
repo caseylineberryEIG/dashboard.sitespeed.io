@@ -1,0 +1,5 @@
+https://www1.ipage.com/secure/login.html
+https://secure.fatcow.com/secure/login.bml
+https://www1.domain.com/secure/login.html
+https://my.bluehost.com/web-hosting/cplogin
+https://secure.ipower.com/secure/login.bml

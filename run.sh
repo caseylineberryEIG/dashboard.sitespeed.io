@@ -9,6 +9,13 @@ DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g --rm -v /config:/config -v "$(p
 CONFIG="--config /sitespeed.io/config"
 BROWSERS=(chrome firefox)
 
+
+# Setup the network throttling in Docker
+docker network create --driver bridge --subnet=172.18.0.0/24 --gateway=172.18.0.1 --opt "com.docker.network.bridge.name"="docker1" cable
+sudo tc qdisc add dev docker1 root handle 1: htb default 12
+sudo tc class add dev docker1 parent 1:1 classid 1:12 htb rate 5mbit ceil 5mbit
+sudo tc qdisc add dev docker1 parent 1:12 netem delay 14ms
+
 # We loop through all directories we have
 # We run many tests to verify the functionality of sitespeed.io and you can simplify this by
 # removing things you don't need!
@@ -78,6 +85,10 @@ done
 #    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
 #    control
 #done
+
+#Remove the docker network stuff
+net_id=`docker network ls --filter 'name=cable' | grep -v NETWORK | cut -d\   -f1`
+docker network rm ${net_id}
 
 # Remove the current container so we fetch the latest autobuild the next time
 # If you run a stable version (as YOU should), you don't need to remove the container,

@@ -1,4 +1,4 @@
-https://ipg-test-ipm-eig.com/
-https://dom-test-ipm-eig.com/
-https://bh-test-ipm-eig.com/
-https://fcw-test-ipm-eig.com/
+https://ipg-test-ipm-eig.com/ iPage-test
+https://dom-test-ipm-eig.com/ Domain-test
+https://bh-test-ipm-eig.com/ BlueHost-test
+https://fcw-test-ipm-eig.com/ Fatcow-test

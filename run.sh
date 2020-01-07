@@ -97,5 +97,5 @@ docker network rm ${net_id}
 #docker system prune --all --volumes -f
 docker system prune --volumes -f
 #clean up old local result files older than 14 days
-find "$(pwd)"/sitespeed-result -mtime +5 -exec rm {} \;
+find "$(pwd)"/sitespeed-result/* -mtime +5 -exec rm {} \;
 sleep 60

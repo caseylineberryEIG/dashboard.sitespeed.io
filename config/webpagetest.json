@@ -8,8 +8,9 @@
     "visualElements": true,
     "iterations": 3,
     "browser": "chrome",
-    "video": true,
+    "video": false,
     "visualMetric": true
+    "screenshots": false
   },
   "chrome": {
     "collectConsoleLog": true,
@@ -21,7 +22,7 @@
     "fetchHARFiles": true
   },
   "axe": {
-    "enable": true
+    "enable": false
   },
   "screenshot": {
     "type": "jpg"

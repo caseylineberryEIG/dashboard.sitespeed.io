@@ -1,5 +1,5 @@
-https://www1.ipage.com/secure/login.html
-https://secure.fatcow.com/secure/login.bml
-https://www1.domain.com/secure/login.html
-https://my.bluehost.com/web-hosting/cplogin
-https://secure.ipower.com/secure/login.bml
+https://www1.ipage.com/secure/login.html iPage_CP_Login
+https://secure.fatcow.com/secure/login.bml FatCow_CP_Login
+https://www1.domain.com/secure/login.html Domain_CP_Login
+https://my.bluehost.com/web-hosting/cplogin BlueHost_CP_Login
+https://secure.ipower.com/secure/login.bml iPower_CP_Login

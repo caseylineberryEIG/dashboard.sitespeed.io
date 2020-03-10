@@ -11,7 +11,7 @@ BROWSERS=(chrome firefox)
 
 
 # Setup the network throttling in Docker
-docker network create --driver bridge --subnet=172.18.0.0/24 --gateway=172.18.0.1 --opt "com.docker.network.bridge.name"="docker1" cable
+sudo docker network create --driver bridge --subnet=172.18.0.0/24 --gateway=172.18.0.1 --opt "com.docker.network.bridge.name"="docker1" cable
 sudo tc qdisc add dev docker1 root handle 1: htb default 12
 sudo tc class add dev docker1 parent 1:1 classid 1:12 htb rate 5mbit ceil 5mbit
 sudo tc qdisc add dev docker1 parent 1:12 netem delay 14ms
@@ -88,14 +88,14 @@ done
 
 #Remove the docker network stuff
 net_id=`docker network ls --filter 'name=cable' | grep -v NETWORK | cut -d\   -f1`
-docker network rm ${net_id}
+sudo docker network rm ${net_id}
 
 # Remove the current container so we fetch the latest autobuild the next time
 # If you run a stable version (as YOU should), you don't need to remove the container,
 # instead make sure you remove all volumes (of data)
 # docker volume prune -f
 #docker system prune --all --volumes -f
-docker system prune --volumes -f
+sudo docker system prune --volumes -f
 #clean up old local result files older than 14 days
-find "$(pwd)"/sitespeed-result/* -mtime +5 -exec rm {} \;
+find "$(pwd)"/sitespeed-result/* -mtime +5 -exec sudo rm -f {} \;
 sleep 60
